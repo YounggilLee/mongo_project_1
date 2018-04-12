@@ -11,12 +11,12 @@ describe('Deleting a user', () => {
     })
 
     it('model instance remove', (done) => {
-            joe.remove()
-                .then(() => User.findOne({name: 'Joe' }))
-                .then((user)=> {
-                    assert(user === null)
-                    done()
-                })
+        joe.remove()
+            .then(() => User.findOne({ name: 'Joe' }))
+            .then((user) => {
+                assert(user === null)
+                done()
+            })
     })
 
     it('class method remove', (done) => {
@@ -29,8 +29,7 @@ describe('Deleting a user', () => {
             })
     })
 
-
-    it('class method findAndRemove', (done) => {
+    it('class method findOneAndRemove', (done) => {
         User.findOneAndRemove({ name: 'Joe' })
             .then(() => User.findOne({ name: 'Joe' }))
             .then((user) => {
@@ -47,5 +46,4 @@ describe('Deleting a user', () => {
                 done()
             })
     })
-
 })

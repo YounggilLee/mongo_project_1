@@ -1,13 +1,12 @@
-const mongoose = require  ('mongoose')
+const mongoose = require('mongoose')
 const PostSchema = require('./post')
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     name: {
         type: String,
         validate: {
-            validator: (name) =>  name.length > 2,
-            //if the rerods is invalied
+            validator: (name) => name.length > 2,
             message: 'Name must be longer than 2 characters.'
         },
         required: [true, 'Name is required.']
